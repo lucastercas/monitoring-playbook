@@ -23,7 +23,7 @@
     repo: "deb http://apt.kubernetes.io/ kubernetes-xenial main"
     state: present
 
-- name: Install packages for masters
+- name: Install kubernetes packages
   package:
     name: "{{ item }}"
     state: present

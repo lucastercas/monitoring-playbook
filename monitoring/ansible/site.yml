@@ -1,11 +1,19 @@
 ---
-- name: Configure monitoring hosts
-  hosts: all
-  roles:
-    - geerlingguy.docker
-    - geerlingguy.firewall
+# - name: Configure monitoring hosts
+#   hosts: all
+#   remote_user: root
+#   roles:
+#     - geerlingguy.docker
+#     - geerlingguy.firewall
 
 - name: Initialize master machines
   hosts: masters
+  remote_user: root
   roles:
-    - lucastercas.masters
+    - lucastercas.k8s-masters
+
+- name: Add workers to cluster
+  hosts: workers
+  remote_user: root
+  roles:
+    - lucastercas.k8s-workers
