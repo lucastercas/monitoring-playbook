@@ -3,4 +3,9 @@
   hosts: all
   roles:
     - geerlingguy.docker
-    - lucastercas.monitoring
+    - geerlingguy.firewall
+
+- name: Initialize master machines
+  hosts: masters
+  roles:
+    - lucastercas.masters

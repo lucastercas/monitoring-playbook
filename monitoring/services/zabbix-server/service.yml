@@ -1,0 +1,19 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: zabbix-server
+  namespace: monitoring
+  annotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "10050"
+  labels:
+    app: zabbix-server
+spec:
+  type: ClusterIP
+  selector:
+    app: zabbix-server
+  ports:
+    - port: 80
+      targetPort: default
+      protocol: TCP

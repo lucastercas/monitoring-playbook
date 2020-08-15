@@ -17,17 +17,21 @@ spec:
     spec:
       containers:
         - name: zabbix-server
-          image: ""
+          image: zabbix/zabbix-server-pgsql
           resources:
             limits:
               memory: 256M
               cpu: 500m
+          environment:
+            DB_SERVER_HOST: ""
+            POSTGRES_USER: ""
+            POSTGRES_PASSWORD: ""
           ports:
             - name: default
               containerPort: 10050
           volumeMounts:
             - name: config-volume
-              mountPath: /etc/zabbix/zabbix-server.conf
+              mountPath: /etc/zabbix/zabbix/
       volumes:
         - name: config-volume
           configMap:

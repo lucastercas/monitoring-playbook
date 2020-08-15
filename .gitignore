@@ -1,0 +1,7 @@
+# Terraform Files
+**/.terraform
+**/terraform.tfstate
+**/terraform.tfstate.backup
+
+# Ansible Files
+**/*.retry
