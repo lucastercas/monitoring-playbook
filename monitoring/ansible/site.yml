@@ -1,0 +1,6 @@
+---
+- name: Configure monitoring hosts
+  hosts: all
+  roles:
+    - geerlingguy.docker
+    - lucastercas.monitoring

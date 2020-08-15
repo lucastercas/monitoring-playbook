@@ -1,0 +1,34 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: monitoring
+  name: zabbix-server
+spec:
+  selector:
+    matchLabels:
+      app: zabbix-server
+  replicas: 1
+  template:
+    metadata:
+      name: zabbix-server
+      labels:
+        app: zabbix-server
+    spec:
+      containers:
+        - name: zabbix-server
+          image: ""
+          resources:
+            limits:
+              memory: 256M
+              cpu: 500m
+          ports:
+            - name: default
+              containerPort: 10050
+          volumeMounts:
+            - name: config-volume
+              mountPath: /etc/zabbix/zabbix-server.conf
+      volumes:
+        - name: config-volume
+          configMap:
+            name: zabbix-server-config
