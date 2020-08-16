@@ -1,10 +1,10 @@
 ---
-# - name: Configure monitoring hosts
-#   hosts: all
-#   remote_user: root
-#   roles:
-#     - geerlingguy.docker
-#     - geerlingguy.firewall
+- name: Configure monitoring hosts
+  hosts: all
+  remote_user: root
+  roles:
+    - geerlingguy.firewall
+    - geerlingguy.docker
 
 - name: Initialize master machines
   hosts: masters

@@ -7,7 +7,7 @@ run-playbook:
 		-v ~/.ssh/id_rsa.pub:/root/ssh/id_rsa.pub \
 		-v $(CURDIR):/opt/app \
 		lucastercas/ansible \
-			ansible-playbook -i hosts/dev.yml site.yml
+			ansible-playbook -i hosts/dev.yml site.yml -vvvv
 
 install-requirements:
 	@docker run --rm -it \

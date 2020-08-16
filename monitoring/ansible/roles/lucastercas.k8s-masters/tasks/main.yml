@@ -71,12 +71,17 @@
 - name: Get kubectl join command
   command: kubeadm token create --print-join-command
   changed_when: false
-  register: kubectl_worker_join_command
+  register: kubectl_worker_join_command_output
 
 - name: Set the kubectl worker join command on all hosts
   set_fact:
-    kubectl_worker_join_command: "{{ kubectl_worker_join_command.stdout }}"
-  when: kubectl_worker_join_command.stdout is defined
+    kubectl_worker_join_command: "{{ kubectl_worker_join_command_output.stdout }}"
+  when: kubectl_worker_join_command_output.stdout is defined
   delegate_to: "{{ item }}"
   delegate_facts: true
   with_items: "{{ groups['all'] }}"
+
+- name: Get kubectl config file
+  fetch:
+    src: /etc/kubernetes/admin.conf
+    dest: ./

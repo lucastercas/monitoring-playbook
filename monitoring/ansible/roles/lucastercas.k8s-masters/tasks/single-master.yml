@@ -2,7 +2,7 @@
 - name: Initialize single master cluster
   command: >
     kubeadm init
-    --apiserver-advertise-address={{ advertive_ip_address | default(ansible_default_ipv4.address, true) }}
+    --apiserver-advertise-address={{ ansible_default_ipv4.address }}
     --upload-certs
     --pod-network-cidr="{{ cluster_networks[selected_network].pod_network_cidr }}"
     --ignore-preflight-errors="{{ ignore_preflight_errors }}"

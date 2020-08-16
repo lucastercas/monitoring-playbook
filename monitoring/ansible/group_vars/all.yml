@@ -2,24 +2,19 @@
 ansible_python_interpreter: /usr/bin/python3
 
 firewall_allowed_tcp_ports:
-  - "22"    # ssh
-  - "80"    # http
-  - "443"   # https
+  - "22"
+  - "80"
+  - "443"
   - "2376"
   - "2379"
   - "2380"
-  - "6783"
   - "6443"
   - "9099"
   - "10250"
   - "10254"
-  - "8443"
 
 firewall_allowed_udp_ports:
   - "8472"
-  - "8443"
-  - "6783"
-  - "6784"
 
 firewall_additional_rules:
   - "iptables -A INPUT -p tcp --match multiport --dports 30000:32767 -j ACCEPT"
