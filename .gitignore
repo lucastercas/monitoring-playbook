@@ -6,3 +6,4 @@
 # Ansible Files
 **/*.retry
 **/ansible/hosts
+**/ansible/roles
