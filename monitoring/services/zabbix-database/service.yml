@@ -1,0 +1,18 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: monitoring
+  name: zabbix-pgsql
+  annotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "8080"
+  labels:
+    app: zabbix-pgsql
+spec:
+  selector:
+    app: zabbix-pgsql
+  ports:
+    - port: 80
+      targetPort: 5432
+      protocol: TCP

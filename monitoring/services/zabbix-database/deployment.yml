@@ -1,0 +1,37 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: monitoring
+  name: zabbix-pgsql
+  labels:
+    app: zabbix-pgsql
+spec:
+  selector:
+    matchLabels:
+      app: zabbix-pgsql
+  replicas: 1
+  template:
+    metadata:
+      name: zabbix-pgsql
+      labels:
+        app: zabbix-pgsql
+    spec:
+      containers:
+        - name: zabbix-pgsql
+          image: ""
+          imagePullPolicy: "IfNotPresent"
+          resources:
+            limits:
+              memory: 1G
+              cpu: 500m
+          environment:
+            POSTGRES_USER: ""
+            POSTGRES_PASSWORD: ""
+          volumeMounts:
+            - name: zabbix-pgsql
+              mountPath: /var/lib/posgresql/data
+      volumes:
+        - name: zabbix-pgsql
+          persistentVolumeClaim:
+            claimName: zabbix-pgsql-pvc
