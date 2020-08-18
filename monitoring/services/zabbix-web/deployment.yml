@@ -1,0 +1,32 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: monitoring
+  name: zabbix-web
+spec:
+  selector:
+    matchLabels:
+      app: zabbix-web
+  replicas: 1
+  template:
+    metadata:
+      name: zabbix-web
+      labels:
+        app: zabbix-web
+    spec:
+      container:
+        - name: zabbix-web
+          image: zabbix/zabbix-web-nginx-pgsql:alpine-latest
+          resources:
+            limits:
+              memory: 512M
+              cpu: 500m
+          environment:
+            ZBX_SERVER_HOST: ""
+            DB_SERVER_HOST: ""
+            POSTGRES_USER: ""
+            POSTGRES_PASSWORD: ""
+          ports:
+            - name: default
+              containerPort: "8080"
