@@ -7,4 +7,4 @@
 **/*.retry
 **/ansible/hosts
 **/ansible/roles/*
-!**/ansible/roles/lucastercas*/*
+!**/ansible/roles/lucastercas.*/*

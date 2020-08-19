@@ -1,5 +1,0 @@
----
-- include_tasks: configure-machines.yml
-
-- name: Execute join command on workers
-  command: "{{ kubectl_worker_join_command }}"
