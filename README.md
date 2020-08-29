@@ -8,19 +8,11 @@ hosts that do the monitoring.
 
 For monitoring, the `monitoring` directory includes playbooks for:
 
-1. Zabbix Server
-2. Zabbix Web
-3. Grafana
-4. Kibana
-5. LogStash
-6. Fluentd
-
 ## Monitored
 
-1. Machines
-2. Prometheus
-
 ## Usage example
+
+`make install-requirements`
 
 ## Development setup
 
