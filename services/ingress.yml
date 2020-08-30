@@ -7,7 +7,7 @@ metadata:
     kubernetes.io/ingress.class: "nginx"
 spec:
   rules:
-    - host: zabbix.lucastercas.xyz
+    # - host: zabbix.lucastercas.xyz
     - host: grafana.lucastercas.xyz
       http:
         paths:
@@ -15,4 +15,4 @@ spec:
             backend:
               serviceName: grafana
               servicePort: 80
-    - host: prometheus.lucastercas.xyz
+    # - host: prometheus.lucastercas.xyz

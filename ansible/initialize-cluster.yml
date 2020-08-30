@@ -4,16 +4,16 @@
   remote_user: root
   roles:
     - geerlingguy.firewall
-    - geerlingguy.docker
+    # - geerlingguy.docker
 
-- name: Initialize master nodes
-  hosts: masters
-  remote_user: root
-  roles:
-    - lucastercas.kubernetes-master
+# - name: Initialize master nodes
+#   hosts: masters
+#   remote_user: root
+#   roles:
+#     - lucastercas.kubernetes-master
 
-- name: Add workers to cluster
-  hosts: workers
-  remote_user: root
-  roles:
-    - lucastercas.kubernetes-worker
+# - name: Add workers to cluster
+#   hosts: workers
+#   remote_user: root
+#   roles:
+#     - lucastercas.kubernetes-worker

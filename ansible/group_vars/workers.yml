@@ -8,6 +8,7 @@ firewall_allowed_tcp_ports:
   - "10255"   # read-only kubelet api
   - "6783"    # weave network
   - "6784"    # weave network
+  - "8443"
 
 firewall_additional_rules:
   - "iptables -A INPUT -p tcp --match multiport --dports 30000:32767 -j ACCEPT"
