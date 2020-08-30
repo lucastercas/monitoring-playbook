@@ -9,4 +9,10 @@ spec:
   rules:
     - host: zabbix.lucastercas.xyz
     - host: grafana.lucastercas.xyz
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: grafana
+              servicePort: 80
     - host: prometheus.lucastercas.xyz
