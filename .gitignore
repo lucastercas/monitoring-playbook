@@ -2,7 +2,6 @@
 **/.terraform
 **/terraform.tfstate
 **/terraform.tfstate.backup
-**/admin.conf
 
 # Ansible Files
 **/*.retry
@@ -10,3 +9,6 @@
 **/ansible/inventories
 **/ansible/roles/*
 !**/ansible/roles/lucastercas.*/*
+
+# K8s config
+**/admin.conf

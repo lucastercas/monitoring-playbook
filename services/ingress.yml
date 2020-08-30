@@ -1,0 +1,12 @@
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: ingress
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  rules:
+    - host: zabbix.lucastercas.xyz
+    - host: grafana.lucastercas.xyz
+    - host: prometheus.lucastercas.xyz

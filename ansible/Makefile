@@ -1,29 +1,24 @@
 .PHONY: install-requirements install-role run-playbook
 
-run-playbook:
+run:
 	@docker run --rm -ti \
 		-w /opt/app \
 		-v ~/.ssh/id_rsa:/root/.ssh/id_rsa \
 		-v ~/.ssh/id_rsa.pub:/root/ssh/id_rsa.pub \
 		-v $(CURDIR):/opt/app \
 		lucastercas/ansible \
-			ansible-playbook -i inventories/dev.yml site.yml -v
+			ansible-playbook -i inventories/cluster-nodes.yml $(playbook).yml -v
 
 install-requirements:
 	@docker run --rm -it \
 		-w /opt/app \
+		-v ~/.ssh/id_rsa:/root/.ssh/id_rsa \
+		-v ~/.ssh/id_rsa.pub:/root/ssh/id_rsa.pub \
 		-v $(CURDIR):/opt/app \
-		lucastercas/ansible \
-			ansible-galaxy install -r requirements.yml
+		lucastercas/ansible ansible-galaxy install -r requirements.yml
 
 install-role:
 	@docker run --rm -it \
 		-w /opt/app
 		-v $(CURDIR):/opt/app \
-		lucastercas/ansible \
-			ansible-galaxy install role $(role)
-
-clean:
-	rm -rf roles/geerlingguy.*
-	rm -rf roles/lucastercas.*
-	rm -rf *.retry
+		lucastercas/ansible ansible-galaxy install role $(role)

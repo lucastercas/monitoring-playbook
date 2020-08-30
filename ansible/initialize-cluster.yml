@@ -1,12 +1,12 @@
 ---
-- name: Configure monitoring hosts
+- name: Configure hosts
   hosts: all
   remote_user: root
   roles:
     - geerlingguy.firewall
     - geerlingguy.docker
 
-- name: Initialize master machines
+- name: Initialize master nodes
   hosts: masters
   remote_user: root
   roles:

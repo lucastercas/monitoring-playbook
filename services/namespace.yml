@@ -1,0 +1,5 @@
+---
+apiVersion: v11
+kind: Namespace
+metadata:
+  name: monitoring
