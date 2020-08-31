@@ -12,3 +12,7 @@
 - name: lucastercas.kubernetes-worker
   src: https://github.com/lucastercas/ansible-role-kubernetes-worker
   version: origin/master
+
+- name: lucastercas.kubernetes-loadbalancer
+  src: https://github.com/lucastercas/ansible-role-kubernetes-loadbalancer.git
+  version: origin/master
